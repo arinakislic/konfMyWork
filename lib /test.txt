@@ -1,0 +1,12 @@
+; Конфигурация веб-сервера
+var server_name = "MyWebServer"
+var max_connections = 100
+var default_ports = #( 80, 443, 8080 )
+
+server = !{server_name}
+port = 8080
+max_clients = !{max_connections}
+ports = !{default_ports}
+timeout = 30
+welcome_message = "Добро пожаловать на наш сервер"
+features = #( "ssl", "compression", "caching" )
