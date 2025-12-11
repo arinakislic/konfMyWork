@@ -3,7 +3,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.regex.*;
 
-public class ConfigConverter {
+public class Main {
     // Хранилище для констант (ключ -> значение)
     private static final Map<String, Object> constants = new HashMap<>();
     // Результирующая структура для TOML (LinkedHashMap сохраняет порядок вставки)
@@ -44,11 +44,8 @@ public class ConfigConverter {
             String tomlResult = convertToTomlString(); // Преобразование в TOML-строку
 
             // Вывод результата
-            System.out.println("\n" + "=".repeat(50));
             System.out.println("Результат в формате TOML:");
-            System.out.println("=".repeat(50));
             System.out.println(tomlResult);
-            System.out.println("=".repeat(50));
 
         } catch (Exception e) {
             System.err.println("\nОшибка при обработке файла!");
@@ -224,7 +221,7 @@ public class ConfigConverter {
         for (Map.Entry<String, Object> entry : tomlMap.entrySet()) {
             String key = entry.getKey();
             Object value = entry.getValue();
-            result.append(key).append(" = ").append(formatTomlValue(value)).append("\n");
+            result.append(key).append("  ").append(formatTomlValue(value)).append("\n");
         }
 
         return result.toString();
